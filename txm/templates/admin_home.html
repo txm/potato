@@ -9,8 +9,10 @@
 
       <form action="?id={{ id|safe }}" method="post">{% csrf_token %}
 
-        {{ form.as_p }}
+        <ul>
+        {{ form.as_ul }}
         {{ html|safe }}
+        </ul>
 
       <input type="submit" value="Submit" />
 
@@ -28,16 +30,16 @@
       <div class="blog">
 
         <dl>
-            <dt>Title: </dt>
+            <dt><label>Title:</label></dt>
             <dd>{{blog.title}}</dd>
  
-            <dt>Body: </dt>
+            <dt><label>Body:</label></dt>
             <dd>{{blog.body}}</dd>
  
-            <dt>Author: </dt>
+            <dt><label>Author:</label></dt>
             <dd><a href="mailto:{{blog.author}}">{{blog.author}}</a></dd>
  
-            <dt>Date:</dt>
+            <dt><label>Date:</label></dt>
             <dd>{{blog.date}}</dd>
         </dl>
 

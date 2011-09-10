@@ -2,8 +2,7 @@ body {
     margin:0; 
     padding:0; 
     height:100%; 
-font-family: Verdana, Tahoma, Helvetica, Arial;
-
+    font-family: Verdana, Tahoma, Helvetica, Arial;
 }
 
 div {
@@ -34,12 +33,18 @@ ul {
     margin: 0;
 }
 
-ul li {
+ul.actions li {
+    float: left;
+    padding: 10px;
+}
+
+#footer ul li {
     float: left;
     padding: 10px;
 }
 
 #logo {
+    
 }
 
 .layout {
@@ -86,7 +91,17 @@ ul li {
 }
 
 hr {
-  clear: left;
+    clear: left;
 }
 
+textarea, input {
+    width: 50%;
+    border: 1px solid #781351;
+    background: #E8E8E8;
+    border: 2px outset silver;
+}
+
+li label {
+    display:block;
+}
 
