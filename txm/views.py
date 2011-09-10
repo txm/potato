@@ -9,6 +9,7 @@ from google.appengine.api import users
 from txm.forms import BlogForm
 from txm.models import Blog
 
+from twitter import twitter
 
 def blogs(request):
 
@@ -68,8 +69,16 @@ def admin_home(request):
 
 def tweet(request, blog):
 
-    ''
-    # not implemented
+    api = twitter.Api(
+        consumer_key=settings.OAUTH_APP_SETTINGS['twitter']['consumer_key'], 
+        consumer_secret=settings.OAUTH_APP_SETTINGS['twitter']['consumer_secret'], 
+        access_token_key=settings.OAUTH_APP_SETTINGS['twitter']['access_token'], 
+        access_token_secret=settings.OAUTH_APP_SETTINGS['twitter']['access_token_secret'],
+    )
+
+    #assert False, api.VerifyCredentials() 
+    tweet = 'Blog post: ' + blog.title  + ' http://' + request.META['HTTP_HOST'] + '/blog/' + str(blog.id)
+    api.PostUpdate(tweet)
 
 
 @login_required
