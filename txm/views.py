@@ -9,10 +9,16 @@ from txm.forms import BlogForm
 from txm.models import Blog
 
 
-def blog_view(request):
+def blogs(request):
 
     blogs = Blog.objects.all()
     return render_to_response('home.html', { 'blogs': blogs }, context_instance=RequestContext(request))
+
+
+def blog_view(request, id):
+
+    blog = Blog.objects.get(id=id)
+    return render_to_response('home_view.html', { 'blog': blog }, context_instance=RequestContext(request))
 
 
 # Borrowed from http://www.factory-h.com/blog/?p=23
@@ -44,8 +50,9 @@ def admin_home(request):
     if request.method == 'POST':
         form = BlogForm(data=request.POST)
         if form.is_valid():
-            form.save()
+            blog = form.save()
             form = BlogForm()
+            #tweet(blog)
 
     else:
         form = BlogForm()
@@ -56,6 +63,11 @@ def admin_home(request):
         'form': form,
         'blogs': blogs,
     }, context_instance=RequestContext(request))
+
+
+def tweet(blog):
+
+    assert False, blog.id
 
 
 @login_required
@@ -90,4 +102,5 @@ def admin_delete(request):
         blog.delete()
 
     return HttpResponseRedirect('/admin/') # Redirect after POST
+
 

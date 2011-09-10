@@ -20,9 +20,15 @@
         <div class="blog">
 
           <h3>{{blog.title}}</h3>
-          <p>{{blog.body}}</p>
+
+          <p><a href="/blog/{{blog.id}}">{{blog.body|truncatewords:5}}&hellip;continued.</a></p>
+
+          <!--
           <strong><a href="mailto:{{blog.author}}">{{blog.author}}</a></strong>
-          <em>{{blog.date}}</em>
+          <p><em>{{blog.date}}</em></p>
+          <p><em>{% if blog.tweeted%}Tweeted{% else %}Not tweeted{% endif %}</em></p>
+          -->
+
           <hr />
 
         </div>
