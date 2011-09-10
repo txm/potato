@@ -9,7 +9,8 @@
 
     <ul>
       <li><a href="#tabs-1">Blog</a></li>
-      <li><a href="#tabs-2">About</a></li>
+      <li><a href="#tabs-2">Tweets</a></li>
+      <li><a href="#tabs-3">About</a></li>
     </ul>
 
     <div id="tabs-1">
@@ -37,6 +38,42 @@
     </div><!-- /tabs-1 -->
 
     <div id="tabs-2">
+
+<script src="http://widgets.twimg.com/j/2/widget.js"></script>
+<script>
+new TWTR.Widget({
+  version: 2,
+  type: 'profile',
+  rpp: 4,
+  interval: 30000,
+  width: 250,
+  height: 300,
+  theme: {
+    shell: {
+      background: '#333333',
+      color: '#ffffff'
+    },
+    tweets: {
+      background: '#000000',
+      color: '#ffffff',
+      links: '#4aed05'
+    }
+  },
+  features: {
+    scrollbar: false,
+    loop: false,
+    live: false,
+    hashtags: true,
+    timestamp: true,
+    avatars: false,
+    behavior: 'all'
+  }
+}).render().setUser('txmblog').start();
+</script>
+
+    </div><!-- /tabs-2 -->
+
+    <div id="tabs-3">
 
       <h2>About this blog</h2>
 
@@ -76,7 +113,7 @@
 
         <a href="/admin/"><img src="http://fffsilk.appspot.com/application_form.png" />Admin</a></p>
 
-    </div><!-- /tabs-2 -->
+    </div><!-- /tabs-3 -->
 
   </div><!-- /tabs -->
 
