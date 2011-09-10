@@ -1,8 +1,9 @@
 from django.conf import settings
+from django.core.urlresolvers import reverse
 from django.http import HttpResponseRedirect
 from django.shortcuts import render_to_response
 from django.template import RequestContext
-
+from django.core.urlresolvers import reverse
 from google.appengine.api import users
 
 from txm.forms import BlogForm
@@ -52,7 +53,7 @@ def admin_home(request):
         if form.is_valid():
             blog = form.save()
             form = BlogForm()
-            #tweet(blog)
+            tweet(request, blog)
 
     else:
         form = BlogForm()
@@ -65,9 +66,10 @@ def admin_home(request):
     }, context_instance=RequestContext(request))
 
 
-def tweet(blog):
+def tweet(request, blog):
 
-    assert False, blog.id
+    ''
+    # not implemented
 
 
 @login_required

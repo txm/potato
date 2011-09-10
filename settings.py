@@ -28,6 +28,24 @@ AUTOLOAD_SITECONF = 'indexes'
 
 SECRET_KEY = 'TYUImksdcjknkdYGKJKBHVGHNJJVHYUVWDNWJFonerfneonefd'
 
+OAUTH_APP_SETTINGS = {
+
+    'twitter': {
+
+        'consumer_key': 'bua0zIvvU8iRKYCL8R823Q',
+        'consumer_secret': 'o7fG99m200b9twicDhGQmeRjkiG3tRlimRtXfxlrBY',
+
+        'request_token_url': 'https://twitter.com/oauth/request_token',
+        'access_token_url': 'https://twitter.com/oauth/access_token',
+        'user_auth_url': 'http://twitter.com/oauth/authorize',
+
+        'default_api_prefix': 'http://twitter.com',
+        'default_api_suffix': '.json',
+
+    },
+
+}
+
 INSTALLED_APPS = (
 #    'django.contrib.admin',
     'django.contrib.contenttypes',
@@ -38,6 +56,7 @@ INSTALLED_APPS = (
     'dbindexer',
     'registration',
     'txm',
+    'oauthtwitter',
 )
 
 # djangoappengine should come last, so it can override a few manage.py commands
@@ -71,3 +90,4 @@ ADMIN_MEDIA_PREFIX = '/media/admin/'
 TEMPLATE_DIRS = (os.path.join(os.path.dirname(__file__), 'templates'),)
 
 ROOT_URLCONF = 'urls'
+
