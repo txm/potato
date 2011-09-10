@@ -1,0 +1,57 @@
+{% extends 'base.html' %}
+{% block title %}TXM Blog - Admin!{% endblock %}
+
+{% block content %}
+
+  <div id="create" class="layout">
+
+    <h2>Blog admin</h2>
+
+      <form action="?id={{ id|safe }}" method="post">{% csrf_token %}
+
+        {{ form.as_p }}
+        {{ html|safe }}
+
+      <input type="submit" value="Submit" />
+
+    </form>
+
+  </div><!-- /tabs -->
+
+
+  <div id="blogs" class="layout">
+
+    <h3>Blog posts</h3>
+
+    {% for blog in blogs %}
+
+      <div class="blog">
+
+        <dl>
+            <dt>Title: </dt>
+            <dd>{{blog.title}}</dd>
+ 
+            <dt>Body: </dt>
+            <dd>{{blog.body}}</dd>
+ 
+            <dt>Author: </dt>
+            <dd><a href="mailto:{{blog.author}}">{{blog.author}}</a></dd>
+ 
+            <dt>Date:</dt>
+            <dd>{{blog.date}}</dd>
+        </dl>
+
+        <ul class="actions">
+          <li><a class="edit"   href="/admin/edit/?id={{blog.id}}">edit</a></li>
+          <li><a class="delete" href="/admin/delete/?id={{blog.id}}">delete</a></li>
+        </ul><!-- /actions -->
+
+      </div><!-- /blog -->
+
+      <hr />
+
+    {% endfor %}
+
+  </div><!-- /blogs -->
+
+{% endblock %}
