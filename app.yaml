@@ -24,6 +24,9 @@ handlers:
 - url: /css
   static_dir: txm/static/css
 
+- url: /js
+  static_dir: txm/static/js
+
 - url: /favicon\.ico
   static_files: txm/static/favicon.ico
   upload: txm/static/favicon\.ico
