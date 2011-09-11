@@ -24,5 +24,9 @@ handlers:
 - url: /css
   static_dir: txm/static/css
 
+- url: /favicon\.ico
+  static_files: txm/static/favicon.ico
+  upload: txm/static/favicon\.ico
+
 - url: /.*
   script: djangoappengine/main/main.py
