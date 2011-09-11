@@ -27,6 +27,10 @@ handlers:
 - url: /js
   static_dir: txm/static/js
 
+- url: /google2c87c0f173d8c94e\.html 
+  static_files: txm/static/google2c87c0f173d8c94e.html 
+  upload: txm/static/google2c87c0f173d8c94e\.html 
+
 - url: /favicon\.ico
   static_files: txm/static/favicon.ico
   upload: txm/static/favicon\.ico
